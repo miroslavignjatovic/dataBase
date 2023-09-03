@@ -1,0 +1,42 @@
+create database TrainStationDB;
+
+use TrainStationDB;
+
+create table Stations( 
+StationID int PRIMARY KEY, 
+StationName nvarchar (20), 
+City nvarchar(20)
+);
+
+create table Trains(
+TrainID int, 
+TrainName nvarchar(50), 
+TrainType nvarchar(50), 
+DepartureTime time,
+ArrivalTime time,
+StationID int,
+
+);
+
+insert into Stations (StationID, StationName, City)
+values
+(1, 'Vukov Spomenik', 'Beograd'),
+(2, 'Crveni Krst', 'Nis'),
+(3, 'Prokop', 'Beograd');
+
+insert into Trains (TrainID, TrainName, TrainType, DepartureTime, ArrivalTime) 
+values
+(1, 'Soko', 'brzi', '12:00', '12:45'),
+(2, 'Tito', 'standard', '13:00', '13:45'),
+(3, 'Jastreb', 'brzi', '14:00', '14:45'),
+(4, 'Vuk', 'regular', '15:00', '15:45'),
+(5, 'Plavi voz', 'brzi', '16:00', '16:45');
+
+select * from Trains
+select * from Stations
+
+delete from Trains where TrainID = 3;
+
+delete from Stations where StationID = 2;
+
+drop table Trains;
