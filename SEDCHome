@@ -1,0 +1,33 @@
+use SEDCHome;
+
+select * from Student 
+where FirstName = 'Antonio';
+
+select * from Student 
+where DateOfBirth > '01.01.1999';
+
+select * from Student 
+where LastName like 'J%' and  
+EnrolledDate >= '01.01.1998' and EnrolledDate <= '31.01.1998';
+
+select * from  Student 
+order by FirstName;
+
+select LastName from Teacher 
+union
+select LastName from Student;
+
+alter table Teacher
+add StudentID int
+foreign key (StudentID) references Student(ID);
+
+select [Course].Name, [AchievementType].Name
+from [dbo].[Course]
+cross join [dbo].[AchievementType]
+
+select [Teacher].ID,[Teacher].FirstName,[Teacher].LastName
+from [dbo].[Teacher] 
+left join [dbo].[Grade] on [dbo].[Teacher].ID = [dbo].[Grade].TeacherID
+where [dbo].[Grade].ID is null
+
+
